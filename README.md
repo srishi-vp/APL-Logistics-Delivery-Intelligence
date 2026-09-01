@@ -2,38 +2,30 @@
 
 A data-driven logistics analytics and decision-support dashboard designed to analyze delivery performance, identify delay risks, and provide insights into logistics efficiency.
 
-The project uses logistics shipment data to transform raw operational records into interactive visualizations, delivery classifications, delay-risk analysis, and actionable business insights.
+The project transforms logistics shipment data into interactive visualizations, delivery classifications, delay-risk analysis, and actionable business insights.
 
 ## 🌐 Live Application
 
-The project is deployed using Streamlit and provides an interactive dashboard for exploring logistics delivery performance.
-
-**Live Demo:** Replace this line with the deployed Streamlit app link.
-
----
+**Live Demo:** https://apl-logistics-delivery-intelligence-3r64p7ufyxkkpz8a5odv4m.streamlit.app/
 
 ## 📌 Problem Statement
 
-Logistics and last-mile delivery operations generate large volumes of shipment data. Analyzing this data manually makes it difficult to identify delivery delays, understand operational patterns, compare shipping modes and regions, and recognize factors associated with delivery risk.
+Logistics operations generate large volumes of shipment data. Manual analysis makes it difficult to identify delivery delays, compare shipping modes and regions, and understand factors associated with late-delivery risk.
 
-This project addresses the problem by developing an interactive logistics intelligence dashboard that analyzes shipment data and presents meaningful operational insights through data visualization and filtering.
-
----
+This project addresses this problem by developing an interactive logistics intelligence dashboard for analyzing delivery performance, delay risk, and operational efficiency.
 
 ## 🎯 Objectives
 
 - Analyze overall delivery performance.
 - Identify delayed and on-time shipments.
-- Calculate the difference between actual and scheduled shipping time.
+- Calculate actual vs scheduled shipping time.
 - Classify shipments based on delivery performance.
 - Analyze late-delivery risk.
 - Compare different shipping modes.
-- Analyze delivery performance across markets and regions.
+- Analyze markets and regions.
 - Study customer-segment patterns.
-- Provide interactive filtering for operational analysis.
+- Provide interactive data filtering.
 - Generate data-driven logistics insights and recommendations.
-
----
 
 ## ⭐ Key Features
 
@@ -41,31 +33,32 @@ This project addresses the problem by developing an interactive logistics intell
 - Delivery status distribution
 - Delivery classification
 - Delay-gap analysis
-- Shipment-level performance indicators
+- Shipment performance indicators
 
 ### ⚠️ Delay Risk Analysis
-- Identification of late-delivery risk
+- Late-delivery risk identification
 - Actual vs scheduled shipping comparison
 - Delay classification
-- Risk-oriented operational insights
+- Risk-oriented insights
 
 ### 🚚 Shipping Mode Analysis
-- Comparison of delivery performance across shipping modes
-- Identification of patterns in shipment delays
-- Interactive shipping-mode filtering
+- Shipping-mode comparison
+- Delivery delay patterns
+- Interactive filtering
 
 ### 🌎 Regional & Market Analysis
 - Market-level analysis
 - Regional delivery performance
-- Comparison of logistics patterns across geographical areas
+- Geographical logistics patterns
 
 ### 👥 Customer & Product Analysis
 - Customer-segment analysis
-- Product/category-level insights
-- Shipment and customer patterns
+- Product/category insights
+- Customer and shipment patterns
 
 ### 🔎 Interactive Dashboard Controls
-Users can explore the data using filters such as:
+
+Users can filter the dashboard using:
 
 - Shipping Mode
 - Market
@@ -73,11 +66,10 @@ Users can explore the data using filters such as:
 - Customer Segment
 - Date Range
 
----
-
 ## 🧮 Delay Calculation
 
-The project derives a **Delay Gap** using the difference between actual shipping time and scheduled shipping time.
+The project calculates the **Delay Gap** using:
 
 ```text
 Delay Gap = Actual Shipping Days − Scheduled Shipping Days
+
