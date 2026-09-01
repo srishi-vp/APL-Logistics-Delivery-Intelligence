@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
 from pathlib import Path
 
 
@@ -104,7 +105,62 @@ REQUIRED_COLUMNS = [
     "Customer Segment"
 ]
 
+@st.cache_data(show_spinner=False)
+def download_release_dataset():
+    """
+    Download APL Logistics dataset from GitHub Release
+    when it is not available locally.
+    """
 
+    project_root = Path(__file__).resolve().parent.parent
+    data_dir = project_root / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    local_path = data_dir / "APL_Logistics.csv"
+
+    # Use local dataset if it already exists
+    if local_path.exists():
+        return local_path
+
+    download_url = (
+        "https://github.com/"
+        "srishi-vp/"
+        "APL-Logistics-Delivery-Intelligence/"
+        "releases/download/v1.0/"
+        "APL_Logistics.csv"
+    )
+
+    try:
+        with st.spinner("Downloading logistics dataset..."):
+
+            response = requests.get(
+                download_url,
+                stream=True,
+                timeout=300
+            )
+
+            response.raise_for_status()
+
+            with open(local_path, "wb") as file:
+
+                for chunk in response.iter_content(
+                    chunk_size=1024 * 1024
+                ):
+
+                    if chunk:
+                        file.write(chunk)
+
+        return local_path
+
+    except Exception as error:
+
+        st.error(
+            "Unable to download the logistics dataset."
+        )
+
+        st.exception(error)
+
+        return None
 # ============================================================
 # DATA LOADING
 # ============================================================
@@ -466,7 +522,18 @@ st.sidebar.caption(
 # FIND DATA
 # ============================================================
 
+
 csv_files = find_csv_files()
+
+# Download dataset from GitHub Release if
+# it is not available in the project folders.
+if not csv_files:
+
+    release_dataset = download_release_dataset()
+
+    if release_dataset is not None:
+        csv_files = [release_dataset]
+
 
 if not csv_files:
 
