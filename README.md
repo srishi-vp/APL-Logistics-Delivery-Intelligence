@@ -73,3 +73,10 @@ The project calculates the **Delay Gap** using:
 ```text
 Delay Gap = Actual Shipping Days − Scheduled Shipping Days
 
+## 👩‍💻 Author
+
+**Rishitha**
+
+B.Tech – Computer Science and Engineering (DA)  
+Alliance University, Bangalore
+
